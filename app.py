@@ -16,12 +16,8 @@ class UploadFileForm(FlaskForm):
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     form1 = UploadFileForm()
-    form2 = UploadFileForm()
     if form1.validate_on_submit():
         file = form1.file.data # First grab the file
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
-    if form2.validate_on_submit():
-        file = form2.file.data # First grab the file
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
     return render_template('index.html', form=form1)
 
