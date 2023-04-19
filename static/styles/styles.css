@@ -1,0 +1,28 @@
+body{
+    background-color:#4a4e54;
+    color: lightseagreen;
+    font-family: "Helvetica"
+    
+    
+}
+#header{
+    background-color:lightseagreen;
+    color: antiquewhite;
+    padding: 30px;
+    
+}
+#form{
+    border-top: 20px;
+    background-color :floralwhite;
+    padding: 16px;
+}
+
+#result{
+    font-size: 50px;
+    text-align: center;
+}
+#result-text{
+    font-size: 20px;
+    text-align: center;
+    
+}
