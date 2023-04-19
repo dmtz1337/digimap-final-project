@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = 'dev'
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
 # Load the model
-model = tf.keras.models.load_model('digit_recognition.model')
+model = tf.keras.models.load_model('digit_recognition_10.model')
 
 
 class UploadFileForm(FlaskForm):
