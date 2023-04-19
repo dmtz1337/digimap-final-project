@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
+from matplotlib import pyplot as plt
 from wtforms import FileField, SubmitField
 from werkzeug.utils import secure_filename
 
@@ -34,6 +35,7 @@ def home():
         # Load the image and preprocess it
         img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
         img = cv2.resize(img, (28, 28))
+        _, img = cv2.threshold(img, 140, 255, cv2.THRESH_BINARY)
         img = np.invert(np.array([img]))
         img = img.astype('float32') / 255.0
 
