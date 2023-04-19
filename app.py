@@ -7,6 +7,7 @@ from flask_wtf import FlaskForm
 from matplotlib import pyplot as plt
 from wtforms import FileField, SubmitField
 from werkzeug.utils import secure_filename
+import gunicorn
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
