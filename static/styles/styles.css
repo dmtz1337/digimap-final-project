@@ -5,16 +5,16 @@ body{
     
     
 }
-#header{
-    background-color:lightseagreen;
+h1, p{
     color: antiquewhite;
     padding: 30px;
+    text-align: center;
     
 }
-#form{
+div{
     border-top: 20px;
-    background-color :floralwhite;
     padding: 16px;
+    text-align: center;
 }
 
 #result{
