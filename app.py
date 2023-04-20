@@ -27,8 +27,6 @@ class UploadFileForm(FlaskForm):
 def home():
     form = UploadFileForm()
     data = None
-    if request.method == 'POST':
-        data = request.form.get('data')
     if form.validate_on_submit():
         file = form.file.data
         filename = secure_filename(file.filename)
@@ -50,4 +48,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False,port=8000)
