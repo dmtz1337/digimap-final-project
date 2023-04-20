@@ -46,5 +46,5 @@ def home():
     return render_template('index.html', form=form, data=data)
 
 
-#if __name__ == '__main__':
-#    app.run(debug=False, port=10000)
+if __name__ == '__main__':
+    app.run(debug=False, port=10000)
