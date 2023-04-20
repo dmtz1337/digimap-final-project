@@ -45,7 +45,7 @@ def home():
         app.logger("Getting prediction from model...")
         prediction = model.predict(img)
         data = np.argmax(prediction)
-        app.logger("Done. Answer:",data)
+        app.logger("Done. Answer")
 
     return render_template('index.html', form=form, data=data)
 
