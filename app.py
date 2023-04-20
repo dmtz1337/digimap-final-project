@@ -4,7 +4,6 @@ import numpy as np
 import tensorflow as tf
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
-from matplotlib import pyplot as plt
 from wtforms import FileField, SubmitField
 from werkzeug.utils import secure_filename
 import gunicorn
