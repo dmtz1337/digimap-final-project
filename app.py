@@ -34,7 +34,6 @@ def home():
         file.save(filepath)
 
         # Load the image and preprocess it
-        app.logger("Loading and preprocessing...")
         img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
         img = cv2.resize(img, (28, 28))
         _, img = cv2.threshold(img, 140, 255, cv2.THRESH_BINARY)
@@ -42,10 +41,8 @@ def home():
         img = img.astype('float32') / 255.0
 
         # Get the prediction from the model
-        app.logger("Getting prediction from model...")
         prediction = model.predict(img)
         data = np.argmax(prediction)
-        app.logger("Done. Answer")
 
     return render_template('index.html', form=form, data=data)
 
