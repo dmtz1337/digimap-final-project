@@ -26,7 +26,7 @@ class UploadFileForm(FlaskForm):
 def home():
     form = UploadFileForm()
     data = None
-    if form.validate_on_submit():
+    if form.is_submitted():
         file = form.file.data
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
