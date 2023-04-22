@@ -27,21 +27,25 @@ def home():
     form = UploadFileForm()
     data = None
     if form.validate_on_submit():
-        file = form.file.data
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(filepath)
+        try:
+            file = form.file.data
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
 
-        # Load the image and preprocess it
-        img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
-        img = cv2.resize(img, (28, 28))
-        _, img = cv2.threshold(img, 140, 255, cv2.THRESH_BINARY)
-        img = np.invert(np.array([img]))
-        img = img.astype('float32') / 255.0
+            # Load the image and preprocess it
+            img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
+            img = cv2.resize(img, (28, 28))
+            _, img = cv2.threshold(img, 140, 255, cv2.THRESH_BINARY)
+            img = np.invert(np.array([img]))
+            img = img.astype('float32') / 255.0
 
-        # Get the prediction from the model
-        prediction = model.predict(img)
-        data = np.argmax(prediction)
+            # Get the prediction from the model
+            prediction = model.predict(img)
+            data = np.argmax(prediction)
+        except:
+            app.logger.info('Something happened.')
+
 
     return render_template('index.html', form=form, data=data)
 
